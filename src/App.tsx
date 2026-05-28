@@ -66,11 +66,15 @@ const skills = [
   'AI-assisted development',
 ];
 
+const focusClass =
+  'focus-visible:outline-none focus-visible:ring-[6px] focus-visible:ring-[#FF4FD8] focus-visible:ring-offset-[6px] focus-visible:ring-offset-[#FFF8E8] focus-visible:shadow-[0_0_0_12px_#FFFFFF,8px_8px_0_#202124] focus-visible:animate-[focus-pop_520ms_ease-out]';
+const focusLabelClass = `${focusClass} focus-visible:after:pointer-events-none focus-visible:after:absolute focus-visible:after:-top-10 focus-visible:after:left-1/2 focus-visible:after:z-50 focus-visible:after:-translate-x-1/2 focus-visible:after:-rotate-3 focus-visible:after:whitespace-nowrap focus-visible:after:rounded-xl focus-visible:after:border-2 focus-visible:after:border-[#202124] focus-visible:after:bg-[#FF4FD8] focus-visible:after:px-3 focus-visible:after:py-1 focus-visible:after:font-mono focus-visible:after:text-xs focus-visible:after:font-black focus-visible:after:text-white focus-visible:after:shadow-[3px_3px_0_#202124] focus-visible:after:content-['yeah,_focus_works!']`;
+
 function SkipLink() {
   return (
     <a
       href="#main"
-      className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[#202124] focus:px-5 focus:py-3 focus:text-sm focus:font-bold focus:text-white focus:outline-none focus:ring-4 focus:ring-[#B7F34B]"
+      className={`sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[#202124] focus:px-5 focus:py-3 focus:text-sm focus:font-bold focus:text-white ${focusClass}`}
     >
       Skip to CV content
     </a>
@@ -96,6 +100,17 @@ function CodeSticker({ children, className = '' }: { children: ReactNode; classN
   );
 }
 
+function FocusDemoSticker({ className = '' }: { className?: string }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`pointer-events-none absolute z-20 rounded-xl border-2 border-[#202124] bg-[#FF4FD8] px-3 py-2 font-mono text-xs font-black text-white shadow-[3px_3px_0_#202124] ${className}`}
+    >
+      :focus-visible ✨
+    </span>
+  );
+}
+
 function Section({ eyebrow, title, children, id }: { eyebrow: string; title: string; children: ReactNode; id: string }) {
   return (
     <section id={id} aria-labelledby={`${id}-heading`} className="scroll-mt-24">
@@ -111,28 +126,38 @@ function Section({ eyebrow, title, children, id }: { eyebrow: string; title: str
 export default function App() {
   return (
     <div className="min-h-screen bg-[#FFF8E8] text-[#202124] antialiased">
+      <style>{`
+        @keyframes focus-pop {
+          0% { transform: translate(-2px, -2px) scale(0.98) rotate(-1deg); }
+          45% { transform: translate(1px, 1px) scale(1.04) rotate(1deg); }
+          100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .focus-visible\\:animate-\\[focus-pop_520ms_ease-out\\]:focus-visible {
+            animation: none !important;
+          }
+        }
+      `}</style>
       <SkipLink />
       <header className="sticky top-0 z-40 border-b-2 border-[#202124] bg-[#FFF8E8]/95 backdrop-blur" aria-label="CV site header">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4" aria-label="Main navigation">
-          <a
-            href="#top"
-            className="rounded-full bg-[#B7F34B] px-4 py-2 text-sm font-black outline-none focus:ring-4 focus:ring-[#6B3DEB]"
-          >
+          <a href="#top" className={`relative rounded-full bg-[#B7F34B] px-4 py-2 text-sm font-black ${focusClass}`}>
             MK<span className="sr-only"> — Monika Kowalewska CV home</span>
           </a>
           <ul className="hidden items-center gap-6 text-sm font-black md:flex">
             <li>
-              <a className="rounded-md focus:outline-none focus:ring-4 focus:ring-[#B7F34B]" href="#fit">
+              <a className={`relative rounded-md ${focusClass}`} href="#fit">
                 Fit
               </a>
             </li>
             <li>
-              <a className="rounded-md focus:outline-none focus:ring-4 focus:ring-[#B7F34B]" href="#work">
+              <a className={`relative rounded-md ${focusClass}`} href="#work">
                 Work
               </a>
             </li>
             <li>
-              <a className="rounded-md focus:outline-none focus:ring-4 focus:ring-[#B7F34B]" href="#skills">
+              <a className={`relative rounded-md ${focusClass}`} href="#skills">
                 Skills
               </a>
             </li>
@@ -140,7 +165,7 @@ export default function App() {
           <a
             href={`mailto:${candidate.email}`}
             aria-label="Email Monika about the Brisk Teaching accessibility contractor role"
-            className="inline-flex items-center gap-2 rounded-full border-2 border-[#202124] bg-[#FF6B9A] px-5 py-3 text-sm font-black shadow-[4px_4px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-[#B7F34B]"
+            className={`relative inline-flex items-center gap-2 rounded-full border-2 border-[#202124] bg-[#FF6B9A] px-5 py-3 text-sm font-black shadow-[4px_4px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 ${focusClass}`}
           >
             Contact <ExternalLink aria-hidden="true" className="h-4 w-4" />
           </a>
@@ -156,6 +181,7 @@ export default function App() {
           <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-[1.1fr_0.9fr] md:py-24">
             <div className="relative">
               <CodeSticker className="right-8 top-0 hidden rotate-3 lg:block">aria-labelledby=&quot;hero-heading&quot;</CodeSticker>
+              <FocusDemoSticker className="left-56 top-16 hidden rotate-6 lg:block" />
               <p className="inline-flex items-center gap-2 rounded-full border-2 border-[#202124] bg-white px-4 py-2 text-sm font-black uppercase tracking-wide shadow-[4px_4px_0_#202124]">
                 <Sparkles aria-hidden="true" className="h-4 w-4 text-[#6B3DEB]" />
                 Tailored for Brisk Teaching
@@ -172,13 +198,13 @@ export default function App() {
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#fit"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#202124] bg-[#B7F34B] px-7 py-4 text-base font-black shadow-[5px_5px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-[#6B3DEB]"
+                  className={`relative inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#202124] bg-[#B7F34B] px-7 py-4 text-base font-black shadow-[5px_5px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 ${focusLabelClass}`}
                 >
                   See role fit <ArrowRight aria-hidden="true" className="h-5 w-5" />
                 </a>
                 <a
                   href="#a11y-notes"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#202124] bg-white px-7 py-4 text-base font-black shadow-[5px_5px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-[#B7F34B]"
+                  className={`relative inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#202124] bg-white px-7 py-4 text-base font-black shadow-[5px_5px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 ${focusClass}`}
                 >
                   Accessibility notes
                 </a>
@@ -275,7 +301,7 @@ export default function App() {
                   The CV is part of the signal.
                 </h2>
                 <p className="mt-4 text-lg font-semibold leading-8">
-                  This page uses semantic landmarks, a skip link, visible focus states, labelled navigation, descriptive link names, non-color-only status cues, decorative icons hidden from assistive technology, and visual code stickers that make the accessibility intent visible in the UI.
+                  This page uses semantic landmarks, a skip link, one consistent high-contrast focus style, visible keyboard navigation states, labelled navigation, descriptive link names, non-color-only status cues, decorative icons hidden from assistive technology, and visual code stickers that make the accessibility intent visible in the UI.
                 </p>
               </div>
             </div>
