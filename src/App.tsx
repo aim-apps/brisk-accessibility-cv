@@ -14,7 +14,7 @@ import type { ComponentType, ReactNode } from 'react';
 const candidate = {
   name: 'Monika Kowalewska',
   role: 'Frontend Engineer, Accessibility',
-  email: 'kowalewska.mnk@gmail.com',
+  email: 'web.monikakowalewska@gmail.com',
   location: 'Poland · Remote · async-first',
   photoSrc: '/monika-kowalewska.jpg',
   photoAlt:
@@ -146,21 +146,9 @@ export default function App() {
             MK<span className="sr-only"> — Monika Kowalewska CV home</span>
           </a>
           <ul className="hidden items-center gap-6 text-sm font-black md:flex">
-            <li>
-              <a className={`relative rounded-md ${focusClass}`} href="#fit">
-                Fit
-              </a>
-            </li>
-            <li>
-              <a className={`relative rounded-md ${focusClass}`} href="#work">
-                Work
-              </a>
-            </li>
-            <li>
-              <a className={`relative rounded-md ${focusClass}`} href="#skills">
-                Skills
-              </a>
-            </li>
+            <li><a className={`relative rounded-md ${focusClass}`} href="#fit">Fit</a></li>
+            <li><a className={`relative rounded-md ${focusClass}`} href="#work">Work</a></li>
+            <li><a className={`relative rounded-md ${focusClass}`} href="#skills">Skills</a></li>
           </ul>
           <a
             href={`mailto:${candidate.email}`}
@@ -192,20 +180,12 @@ export default function App() {
               <p className="mt-8 max-w-2xl text-xl font-bold leading-8 md:text-2xl">
                 {candidate.name} · {candidate.role}. I help teams turn WCAG audit findings into practical React/TypeScript fixes, reusable component patterns, and verified user flows.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3" aria-label="Candidate quick facts">
-                <Pill>{candidate.location}</Pill>
-              </div>
+              <div className="mt-8 flex flex-wrap gap-3" aria-label="Candidate quick facts"><Pill>{candidate.location}</Pill></div>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <a
-                  href="#fit"
-                  className={`relative inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#202124] bg-[#B7F34B] px-7 py-4 text-base font-black shadow-[5px_5px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 ${focusLabelClass}`}
-                >
+                <a href="#fit" className={`relative inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#202124] bg-[#B7F34B] px-7 py-4 text-base font-black shadow-[5px_5px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 ${focusLabelClass}`}>
                   See role fit <ArrowRight aria-hidden="true" className="h-5 w-5" />
                 </a>
-                <a
-                  href="#a11y-notes"
-                  className={`relative inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#202124] bg-white px-7 py-4 text-base font-black shadow-[5px_5px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 ${focusClass}`}
-                >
+                <a href="#a11y-notes" className={`relative inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#202124] bg-white px-7 py-4 text-base font-black shadow-[5px_5px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 ${focusClass}`}>
                   Accessibility notes
                 </a>
               </div>
@@ -218,22 +198,11 @@ export default function App() {
                 <img src={candidate.photoSrc} alt={candidate.photoAlt} className="aspect-[4/3] w-full object-cover object-[50%_38%]" />
               </figure>
               <div className="mt-5 rounded-[1.5rem] border-2 border-[#202124] bg-[#FFF8E8] p-5">
-                <h2 id="snapshot-heading" className="text-2xl font-black">
-                  Contract snapshot
-                </h2>
+                <h2 id="snapshot-heading" className="text-2xl font-black">Contract snapshot</h2>
                 <dl className="mt-5 space-y-4">
-                  <div>
-                    <dt className="text-sm font-black uppercase tracking-wide text-[#6B3DEB]">Best fit</dt>
-                    <dd className="mt-1 text-lg font-bold">Accessibility remediation for existing React UI</dd>
-                  </div>
-                  <div>
-                    <dt className="text-sm font-black uppercase tracking-wide text-[#6B3DEB]">Delivery style</dt>
-                    <dd className="mt-1 text-lg font-bold">Async-first, milestone-based, low meeting overhead</dd>
-                  </div>
-                  <div>
-                    <dt className="text-sm font-black uppercase tracking-wide text-[#6B3DEB]">I optimize for</dt>
-                    <dd className="mt-1 text-lg font-bold">User impact, component reuse, regression-resistant fixes</dd>
-                  </div>
+                  <div><dt className="text-sm font-black uppercase tracking-wide text-[#6B3DEB]">Best fit</dt><dd className="mt-1 text-lg font-bold">Accessibility remediation for existing React UI</dd></div>
+                  <div><dt className="text-sm font-black uppercase tracking-wide text-[#6B3DEB]">Delivery style</dt><dd className="mt-1 text-lg font-bold">Async-first, milestone-based, low meeting overhead</dd></div>
+                  <div><dt className="text-sm font-black uppercase tracking-wide text-[#6B3DEB]">I optimize for</dt><dd className="mt-1 text-lg font-bold">User impact, component reuse, regression-resistant fixes</dd></div>
                 </dl>
               </div>
             </aside>
@@ -245,9 +214,7 @@ export default function App() {
             <div className="grid gap-5 md:grid-cols-2">
               {fitCards.map(([Icon, title, body]) => (
                 <article key={title} className="rounded-[2rem] border-2 border-[#202124] bg-white p-6 shadow-[6px_6px_0_#202124]">
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-[#202124] bg-[#63D9FF]">
-                    <Icon aria-hidden="true" className="h-6 w-6" />
-                  </div>
+                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-[#202124] bg-[#63D9FF]"><Icon aria-hidden="true" className="h-6 w-6" /></div>
                   <h3 className="text-2xl font-black">{title}</h3>
                   <p className="mt-3 text-lg font-semibold leading-7 text-[#3b3b3b]">{body}</p>
                 </article>
@@ -261,33 +228,17 @@ export default function App() {
               <h3 className="text-2xl font-black">Frontend Developer / Frontend Engineer</h3>
               <p className="mt-1 text-lg font-bold text-[#6B3DEB]">Zoovu · production React + TypeScript UI · distributed US/EU team</p>
               <ul className="mt-6 grid gap-3">
-                <li className="flex gap-3 text-lg font-semibold leading-7">
-                  <CheckCircle2 aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-[#178F52]" />
-                  Worked on a real WCAG audit backlog when accessibility requirements became mandatory for our US market.
-                </li>
-                <li className="flex gap-3 text-lg font-semibold leading-7">
-                  <CheckCircle2 aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-[#178F52]" />
-                  Remediated issues with NVDA and screen-reader-oriented checks: labels, semantics, focus behavior, keyboard paths, and component states.
-                </li>
-                <li className="flex gap-3 text-lg font-semibold leading-7">
-                  <CheckCircle2 aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-[#178F52]" />
-                  Turned tedious one-by-one fixes into reusable, documented component patterns so the same barrier did not keep coming back.
-                </li>
-                <li className="flex gap-3 text-lg font-semibold leading-7">
-                  <CheckCircle2 aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-[#178F52]" />
-                  Built and maintained production frontend features in complex React/TypeScript product flows with API integration and reusable UI structure.
-                </li>
+                <li className="flex gap-3 text-lg font-semibold leading-7"><CheckCircle2 aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-[#178F52]" />Worked on a real WCAG audit backlog when accessibility requirements became mandatory for our US market.</li>
+                <li className="flex gap-3 text-lg font-semibold leading-7"><CheckCircle2 aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-[#178F52]" />Remediated issues with NVDA and screen-reader-oriented checks: labels, semantics, focus behavior, keyboard paths, and component states.</li>
+                <li className="flex gap-3 text-lg font-semibold leading-7"><CheckCircle2 aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-[#178F52]" />Turned tedious one-by-one fixes into reusable, documented component patterns so the same barrier did not keep coming back.</li>
+                <li className="flex gap-3 text-lg font-semibold leading-7"><CheckCircle2 aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-[#178F52]" />Built and maintained production frontend features in complex React/TypeScript product flows with API integration and reusable UI structure.</li>
               </ul>
             </article>
           </Section>
 
           <Section id="skills" eyebrow="Toolbox" title="Frontend skills mapped to accessibility delivery.">
             <ul className="flex flex-wrap gap-3" aria-label="Skills">
-              {skills.map((skill) => (
-                <li key={skill}>
-                  <Pill>{skill}</Pill>
-                </li>
-              ))}
+              {skills.map((skill) => <li key={skill}><Pill>{skill}</Pill></li>)}
             </ul>
           </Section>
 
@@ -297,13 +248,24 @@ export default function App() {
               <MousePointer2 aria-hidden="true" className="h-10 w-10 shrink-0" />
               <div>
                 <p className="text-sm font-black uppercase tracking-[0.18em]">Built as a tiny accessibility demo</p>
-                <h2 id="a11y-notes-heading" className="mt-2 text-3xl font-black md:text-5xl">
-                  The CV is part of the signal.
-                </h2>
-                <p className="mt-4 text-lg font-semibold leading-8">
-                  This page uses semantic landmarks, a skip link, one consistent high-contrast focus style, visible keyboard navigation states, labelled navigation, descriptive link names, non-color-only status cues, decorative icons hidden from assistive technology, and visual code stickers that make the accessibility intent visible in the UI.
-                </p>
+                <h2 id="a11y-notes-heading" className="mt-2 text-3xl font-black md:text-5xl">The CV is part of the signal.</h2>
+                <p className="mt-4 text-lg font-semibold leading-8">This page uses semantic landmarks, a skip link, one consistent high-contrast focus style, visible keyboard navigation states, labelled navigation, descriptive link names, non-color-only status cues, decorative icons hidden from assistive technology, and visual code stickers that make the accessibility intent visible in the UI.</p>
               </div>
+            </div>
+          </section>
+
+          <section id="connect" aria-labelledby="connect-heading" className="relative rounded-[2rem] border-2 border-[#202124] bg-[#B7F34B] p-7 shadow-[8px_8px_0_#202124]">
+            <CodeSticker className="-left-4 top-6 -rotate-6">&lt;a role=&quot;button&quot;&gt;</CodeSticker>
+            <CodeSticker className="right-8 bottom-8 rotate-3">target=&quot;_blank&quot;</CodeSticker>
+            <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.18em] text-[#6B3DEB]">Want the standard CV trail?</p>
+                <h2 id="connect-heading" className="mt-2 text-3xl font-black md:text-5xl">LinkedIn, but make the link honest.</h2>
+                <p className="mt-4 max-w-2xl text-lg font-semibold leading-8">This is still an anchor, because it navigates to a profile. It only looks like a button — with the semantics kept explicit and visible.</p>
+              </div>
+              <a href="https://www.linkedin.com/in/mon-kowalewska/" target="_blank" rel="noreferrer" role="button" aria-label="Open Monika Kowalewska’s LinkedIn profile in a new tab" className={`relative inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#202124] bg-white px-7 py-4 text-base font-black text-[#202124] shadow-[5px_5px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 ${focusClass}`}>
+                Open LinkedIn <ExternalLink aria-hidden="true" className="h-5 w-5" />
+              </a>
             </div>
           </section>
         </div>
