@@ -190,7 +190,7 @@ export default function App() {
                 </a>
               </div>
             </div>
-            <aside aria-labelledby="snapshot-heading" className="relative rounded-[2rem] border-2 border-[#202124] bg-white p-4 shadow-[8px_8px_0_#202124] md:self-end">
+            <div aria-labelledby="snapshot-heading" className="relative rounded-[2rem] border-2 border-[#202124] bg-white p-4 shadow-[8px_8px_0_#202124] md:self-end">
               <CodeSticker className="-left-5 top-10 -rotate-6">alt=&quot;portrait&quot;</CodeSticker>
               <CodeSticker className="right-6 top-72 rotate-3">aria-labelledby</CodeSticker>
               <div aria-hidden="true" className="absolute -right-4 -top-4 h-16 w-16 rotate-12 rounded-2xl border-2 border-[#202124] bg-[#FFD166] shadow-[4px_4px_0_#202124]" />
@@ -205,7 +205,7 @@ export default function App() {
                   <div><dt className="text-sm font-black uppercase tracking-wide text-[#6B3DEB]">I optimize for</dt><dd className="mt-1 text-lg font-bold">User impact, component reuse, regression-resistant fixes</dd></div>
                 </dl>
               </div>
-            </aside>
+            </div>
           </div>
         </section>
 
