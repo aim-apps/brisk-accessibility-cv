@@ -73,7 +73,7 @@ const focusLabelClass = `${focusClass} focus-visible:after:pointer-events-none f
 function SkipLink() {
   return (
     <a
-      href="#main"
+      href="#work"
       className={`sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[#202124] focus:px-5 focus:py-3 focus:text-sm focus:font-bold focus:text-white ${focusClass}`}
     >
       Skip to CV content
