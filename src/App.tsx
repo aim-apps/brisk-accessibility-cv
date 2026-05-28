@@ -21,7 +21,8 @@ const candidate = {
     'Portrait of Monika Kowalewska, frontend engineer applying for the Brisk Teaching accessibility contractor role',
 };
 
-type FitCard = [ComponentType<{ 'aria-hidden': 'true'; className: string }>, string, string];
+type IconComponent = ComponentType<{ 'aria-hidden': 'true'; className: string }>;
+type FitCard = [IconComponent, string, string];
 
 const fitCards: FitCard[] = [
   [
@@ -156,7 +157,7 @@ export default function App() {
             <div className="relative">
               <CodeSticker className="right-8 top-0 hidden rotate-3 lg:block">aria-labelledby=&quot;hero-heading&quot;</CodeSticker>
               <p className="inline-flex items-center gap-2 rounded-full border-2 border-[#202124] bg-white px-4 py-2 text-sm font-black uppercase tracking-wide shadow-[4px_4px_0_#202124]">
-                <Sparkles aria-hidden="true" className="h-4 w-4 text-[#6B3DEB] />
+                <Sparkles aria-hidden="true" className="h-4 w-4 text-[#6B3DEB]" />
                 Tailored for Brisk Teaching
               </p>
               <h1 id="hero-heading" className="mt-8 max-w-4xl text-5xl font-black leading-[0.92] tracking-tight md:text-7xl lg:text-8xl">
