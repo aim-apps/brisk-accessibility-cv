@@ -5,7 +5,7 @@ import {
   ExternalLink,
   FileCheck2,
   Keyboard,
-  MousePointer2,
+  MessageCircleCheck,
   ShieldCheck,
   Sparkles,
 } from 'lucide-react';
@@ -163,10 +163,10 @@ export default function App() {
       <main id="main" tabIndex={-1} className="outline-none">
         <section id="top" aria-labelledby="hero-heading" className="relative overflow-hidden border-b-2 border-[#202124]">
           <div aria-hidden="true" className="absolute -left-20 top-24 h-56 w-56 rounded-full bg-[#6B3DEB] opacity-20 blur-2xl" />
-          <div aria-hidden="true" className="absolute right-6 top-16 h-28 w-28 rotate-12 rounded-[2rem] bg-[#B7F34B] shadow-[6px_6px_0_#202124]" />
+          <div aria-hidden="true" className="absolute right-6 top-16 h-28 w-28 rotate-12 rounded-[2rem] bg-[#B7F34B] shadow-[6px_6px_0_#202124] hidden md:block" />
           <div aria-hidden="true" className="absolute bottom-10 right-1/4 h-20 w-20 rounded-full bg-[#63D9FF] shadow-[5px_5px_0_#202124]" />
 
-          <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-[1.1fr_0.9fr] md:py-24">
+          <div className="mx-auto grid max-w-7xl gap-10 px-5 py-8 md:py-16 md:grid-cols-[1.1fr_0.9fr]">
             <div className="relative">
               <CodeSticker className="right-8 top-0 hidden rotate-3 lg:block">aria-labelledby=&quot;hero-heading&quot;</CodeSticker>
               <FocusDemoSticker className="left-56 top-16 hidden rotate-6 lg:block" />
@@ -174,25 +174,28 @@ export default function App() {
                 <Sparkles aria-hidden="true" className="h-4 w-4 text-[#6B3DEB]" />
                 Tailored for Brisk Teaching
               </p>
-              <h1 id="hero-heading" className="mt-8 max-w-4xl text-5xl font-black leading-[0.92] tracking-tight md:text-7xl lg:text-8xl">
-                Accessibility that works where your product already works
+              <h1 id="hero-heading" className="mt-8 max-w-4xl text-5xl font-black leading-[0.92] tracking-tight md:text-7xl lg:text-7xl xl:text-8xl">
+                {candidate.name}
               </h1>
-              <p className="mt-8 max-w-2xl text-xl font-bold leading-8 md:text-2xl">
-                {candidate.name} · {candidate.role}. I help teams turn WCAG audit findings into practical React/TypeScript fixes, reusable component patterns, and verified user flows.
+              <h2 className="mt-2 max-w-4xl text-2xl font-bold leading-[0.92] tracking-tight md:text-3xl">
+                {candidate.role}.
+              </h2>
+              <p className="mt-8 max-w-2xl text-m font-bold md:leading-8 md:text-l lg:text-xl">
+                I help teams turn WCAG audit findings into practical React/TypeScript fixes, reusable component patterns, and verified user flows.
+                Accessibility that works, where your product already works.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3" aria-label="Candidate quick facts"><Pill>{candidate.location}</Pill></div>
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-6 xl:mt-8 flex flex-wrap gap-3" aria-label="Candidate quick facts"><Pill>{candidate.location}</Pill></div>
+              <div className="mt-6 xl:mt-8 flex flex-col gap-4 sm:flex-row">
                 <a href="#fit" className={`relative inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#202124] bg-[#B7F34B] px-7 py-4 text-base font-black shadow-[5px_5px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 ${focusLabelClass}`}>
                   See role fit <ArrowRight aria-hidden="true" className="h-5 w-5" />
                 </a>
-                <a href="#a11y-notes" className={`relative inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#202124] bg-white px-7 py-4 text-base font-black shadow-[5px_5px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 ${focusClass}`}>
-                  Accessibility notes
+                <a href="mailto:web.monikakowalewska@gmail.com" target="_blank" className={`relative inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#202124] bg-white px-7 py-4 text-base font-black shadow-[5px_5px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 ${focusClass}`}>
+                  Write to me! <MessageCircleCheck aria-hidden="true" className="h-5 w-5" />
                 </a>
               </div>
             </div>
             <div aria-labelledby="snapshot-heading" className="relative rounded-[2rem] border-2 border-[#202124] bg-white p-4 shadow-[8px_8px_0_#202124] md:self-end">
               <CodeSticker className="-left-5 top-10 -rotate-6">alt=&quot;portrait&quot;</CodeSticker>
-              <CodeSticker className="right-6 top-72 rotate-3">aria-labelledby</CodeSticker>
               <div aria-hidden="true" className="absolute -right-4 -top-4 h-16 w-16 rotate-12 rounded-2xl border-2 border-[#202124] bg-[#FFD166] shadow-[4px_4px_0_#202124]" />
               <figure className="overflow-hidden rounded-[1.5rem] border-2 border-[#202124] bg-[#202124]">
                 <img src={candidate.photoSrc} alt={candidate.photoAlt} className="aspect-[4/3] w-full object-cover object-[50%_38%]" />
@@ -242,30 +245,20 @@ export default function App() {
             </ul>
           </Section>
 
-          <section id="a11y-notes" aria-labelledby="a11y-notes-heading" className="relative rounded-[2rem] border-2 border-[#202124] bg-[#D9CBFF] p-7 shadow-[8px_8px_0_#202124]">
-            <CodeSticker className="right-8 top-8 rotate-6">role=&quot;note&quot;</CodeSticker>
-            <div className="flex max-w-4xl flex-col gap-5 md:flex-row md:items-start">
-              <MousePointer2 aria-hidden="true" className="h-10 w-10 shrink-0" />
-              <div>
-                <p className="text-sm font-black uppercase tracking-[0.18em]">Built as a tiny accessibility demo</p>
-                <h2 id="a11y-notes-heading" className="mt-2 text-3xl font-black md:text-5xl">The CV is part of the signal.</h2>
-                <p className="mt-4 text-lg font-semibold leading-8">This page uses semantic landmarks, a skip link, one consistent high-contrast focus style, visible keyboard navigation states, labelled navigation, descriptive link names, non-color-only status cues, decorative icons hidden from assistive technology, and visual code stickers that make the accessibility intent visible in the UI.</p>
-              </div>
-            </div>
-          </section>
-
           <section id="connect" aria-labelledby="connect-heading" className="relative rounded-[2rem] border-2 border-[#202124] bg-[#B7F34B] p-7 shadow-[8px_8px_0_#202124]">
-            <CodeSticker className="-left-4 top-6 -rotate-6">&lt;a role=&quot;button&quot;&gt;</CodeSticker>
-            <CodeSticker className="right-8 bottom-8 rotate-3">target=&quot;_blank&quot;</CodeSticker>
-            <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+            <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center relative">
+
               <div>
-                <p className="text-sm font-black uppercase tracking-[0.18em] text-[#6B3DEB]">Want the standard CV trail?</p>
-                <h2 id="connect-heading" className="mt-2 text-3xl font-black md:text-5xl">LinkedIn, but make the link honest.</h2>
+                <h2 id="connect-heading" className="mt-2 text-3xl font-black md:text-5xl">LinkedIn link</h2>
                 <p className="mt-4 max-w-2xl text-lg font-semibold leading-8">This is still an anchor, because it navigates to a profile. It only looks like a button — with the semantics kept explicit and visible.</p>
               </div>
-              <a href="https://www.linkedin.com/in/mon-kowalewska/" target="_blank" rel="noreferrer" role="button" aria-label="Open Monika Kowalewska’s LinkedIn profile in a new tab" className={`relative inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#202124] bg-white px-7 py-4 text-base font-black text-[#202124] shadow-[5px_5px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 ${focusClass}`}>
-                Open LinkedIn <ExternalLink aria-hidden="true" className="h-5 w-5" />
-              </a>
+              <div className="relative flex w-full">
+                <CodeSticker className="-left-8 -bottom-8 rotate-12 bg-purple-200">&lt;a role=&quot;button&quot;&gt;</CodeSticker>
+                <CodeSticker className="-right-8 -top-8 rotate-12 bg-pink-50">target=&quot;_blank&quot;</CodeSticker>
+                <a href="https://www.linkedin.com/in/mon-kowalewska/" target="_blank" rel="noreferrer" role="button" aria-label="Open Monika Kowalewska’s LinkedIn profile in a new tab" className={`relative w-full inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#202124] bg-white px-7 py-4 text-base font-black text-[#202124] shadow-[5px_5px_0_#202124] transition hover:-translate-x-0.5 hover:-translate-y-0.5 ${focusClass}`}>
+                  Open LinkedIn <ExternalLink aria-hidden="true" className="h-5 w-5" />
+                </a>
+              </div>
             </div>
           </section>
         </div>
