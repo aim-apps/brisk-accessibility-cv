@@ -26,6 +26,24 @@ body {
   outline: none;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  a[href] {
+    text-decoration-thickness: 0.14em;
+    text-underline-offset: 0.22em;
+  }
+
+  a[href]:hover {
+    outline: 4px solid #202124;
+    outline-offset: 5px;
+    filter: saturate(1.2) contrast(1.04);
+  }
+
+  a[href]:hover::selection {
+    background: #ff4fd8;
+    color: #ffffff;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
