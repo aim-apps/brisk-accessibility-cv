@@ -30,16 +30,31 @@ body {
   a[href] {
     text-decoration-thickness: 0.14em;
     text-underline-offset: 0.22em;
+    transition:
+      background-color 220ms ease,
+      color 220ms ease,
+      border-color 220ms ease,
+      box-shadow 220ms ease,
+      filter 220ms ease,
+      transform 220ms ease;
   }
 
   a[href]:hover {
-    outline: 4px solid #202124;
-    outline-offset: 5px;
-    filter: saturate(1.2) contrast(1.04);
+    background-color: #ff4fd8 !important;
+    color: #ffffff !important;
+    border-color: #202124;
+    box-shadow: 6px 6px 0 #202124;
+    filter: saturate(1.08);
+  }
+
+  a[href]:hover svg {
+    color: currentColor;
+    transition: color 220ms ease, transform 220ms ease;
+    transform: rotate(-8deg) translateX(2px);
   }
 
   a[href]:hover::selection {
-    background: #ff4fd8;
+    background: #202124;
     color: #ffffff;
   }
 }
